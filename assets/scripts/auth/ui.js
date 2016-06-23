@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('../app.js');
-//const bookApi = require('../books/book-api.js');
 
 const success = (data) => {
   if (data) {
