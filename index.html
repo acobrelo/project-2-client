@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>HeadSpace</title>
+
+      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="container-fluid">
+      <div class="content">
+        <article>
+          <form id="sign-up">
+            <fieldset>
+              <legend>Sign up!</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" name="submit" value="Sign up!">
+            </fieldset>
+          </form>
+
+          <form id="sign-in">
+            <fieldset>
+              <legend>Sign In!</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" name="submit" value="Sign In">
+            </fieldset>
+          </form>
+
+          <form id="sign-out">
+            <fieldset>
+              <legend>Sign Out!</legend>
+              <input class="sign-out" type="submit" value="Sign Out">
+            </fieldset>
+          </form>
+
+          <form id="change-password">
+            <fieldset>
+              <legend>Change Password!</legend>
+              <input type="password" name="passwords[old]" placeholder="Current Password">
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              <input type="submit" name="submit" value="Change Password">
+            </fieldset>
+          </form>
+        </article>
+        <div class="logged-in">
+          <div class="nav-bar">
+          </div>
+          <div class="welcome">
+              <h2 class="personal-welcome">Welcome, </h2>
+              <h4 class="last-entry-date">Your last entry was on </h4>
+          </div>
+          <div class="new-entry">
+            <button type="button" id="make-new-entry">New Entry</button>
+            <form id="entry">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#part1">Part 1</a></li>
+                <li><a data-toggle="tab" href="#part2">Part 2</a></li>
+                <li><a data-toggle="tab" href="#part3">Part 3</a></li>
+              </ul>
+              <div class="tab-content">
+                <fieldset id="part1" class="tab-pane fade in active">
+                  <legend>New Entry</legend>
+                  <input class="new-date" type="date" value="date">Date:<br>
+                  <input class="new-sleep-record" type="text" value="eg: 6.5">How many hours of sleep did you get last night? Please enter a whole number or decimal<br>
+                  <h5>For each question, select one response that best reflects your current mood, thoughts, and feelings. This should take 5-10 minutes to complete.</h5>
+                    <p>1. How would you rate your sadness today?<br>
+                      <input type="radio" name="sadness" value="0">I do not feel sad.<br>
+                      <input type="radio" name="sadness" value="1">I feel sad.<br>
+                      <input type="radio" name="sadness" value="2">I am sad all the time and I can't snap out of it.<br>
+                      <input type="radio" name="sadness" value="3">I am so sad and unhappy that I can't stand it.<br>
+                    </p>
+                    <p>2. How's your optimism today?<br>
+                      <input type="radio" name="hopelessness" value="0">I am not particularly discouraged about the future.<br>
+                      <input type="radio" name="hopelessness" value="1">I feel discouraged about the future.<br>
+                      <input type="radio" name="hopelessness" value="2">I feel I have nothing to look forward to.<br>
+                      <input type="radio" name="hopelessness" value="3">I feel that the future is hopeless and that things cannot improve.<br>
+                    </p>
+                    <p>3. Are thoughts of past failures on your mind at all?<br>
+                      <input type="radio" name="failure" value="0">I do not feel like a failure.<br>
+                      <input type="radio" name="failure" value="1">I feel I have failed more than the average person.<br>
+                      <input type="radio" name="failure" value="2">As I look back on my life, all I can see is a lot of failures.<br>
+                      <input type="radio" name="failure" value="3">I feel like I am a complete failure as a person.<br>
+                    </p>
+                    <p>4.Often times, a loss of interest or pleasure can be a symptom of depression.
+                      Which option do you find fits your current mood?<br>
+                      <input type="radio" name="anhedonia" value="0">I get as much satisfaction out of things as I used to.<br>
+                      <input type="radio" name="anhedonia" value="1">I don't enjoy things the way I used to.<br>
+                      <input type="radio" name="anhedonia" value="2">I don't get real satisfaction out of anything anymore.<br>
+                      <input type="radio" name="anhedonia" value="3">I am dissatisfied or bored with everything.<br>
+                    </p>
+                    <p>5. Have you had any feelings of guilt today?<br>
+                      <input type="radio" name="guilt" value="0">I don't feel particularly guilty.<br>
+                      <input type="radio" name="guilt" value="1">I feel guilty a good part of the time.<br>
+                      <input type="radio" name="guilt" value="2">I feel quite guilty most of the time.<br>
+                      <input type="radio" name="guilt" value="3">I feel guilty all of the time.<br>
+                    </p>
+                    <p>6. This question might seem a little odd but sometimes people suffering from depression
+                      feel like their symptoms are a punishment or that they are deserving of punishment for what they
+                      see as shortcomings.<br>
+                      <input type="radio" name="punishment" value="0">I don't feel I am being punished.<br>
+                      <input type="radio" name="punishment" value="1">I feel I may be punished.<br>
+                      <input type="radio" name="punishment" value="2">I expect to be punished.<br>
+                      <input type="radio" name="punishment" value="3">I feel I am being punished.<br>
+                    </p>
+                    <p>7. Have you felt disappointed in yourself today? <br>
+                      <input type="radio" name="disappointment" value="0">I don't feel disapointed in myself.<br>
+                      <input type="radio" name="disappointment" value="1">I am disappointed in myself.<br>
+                      <input type="radio" name="disappointment" value="2">I am disgusted with myself.<br>
+                      <input type="radio" name="disappointment" value="3">I hate myself.<br>
+                    </p><br>
+                    <h5>Awesome job! You're a third a way through. Click the "next" button to move on or
+                        check out a cute cat picture!</h5>
+                  </fieldset>
+                <fieldset id="part2" class="tab-pane fade">
+                  <legend>Part 2</legend>
+                  <p>8. How critical of yourself have you been today?<br>
+                    <input type="radio" name="criticism" value="0">I don't feel I am any worse than anybody else.<br>
+                    <input type="radio" name="criticism" value="1">I am critical of myself for my weaknesses or mistakes.<br>
+                    <input type="radio" name="criticism" value="2">I blame myself all the time for my faults.<br>
+                    <input type="radio" name="criticism" value="3">I blame myself for everything bad that happens.<br>
+                  </p>
+                  <p><br>
+                    <input type="radio" name="punishment" value="0"><br>
+                    <input type="radio" name="punishment" value="1"><br>
+                    <input type="radio" name="punishment" value="2"><br>
+                    <input type="radio" name="punishment" value="3"><br>
+                  </p>
+                  <p><br>
+                    <input type="radio" name="punishment" value="0"><br>
+                    <input type="radio" name="punishment" value="1"><br>
+                    <input type="radio" name="punishment" value="2"><br>
+                    <input type="radio" name="punishment" value="3"><br>
+                  </p>
+                </fieldset>
+                <fieldset id="part3" class="tab-pane fade">
+                </fieldset>
+              </div>
+            </form>
+          </div>
+
+              <div class="view-data">
+                <button type="button" id="view-old-entries">View Entry</button>
+              </div>
+        </div>
+      </div>
+    </body>
+</html>
