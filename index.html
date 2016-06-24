@@ -13,9 +13,9 @@
           <form id="sign-up">
             <fieldset>
               <legend>Sign up!</legend>
-              <input type="text" name="credentials[email]" placeholder="Email">
-              <input type="password" name="credentials[password]" placeholder="Password">
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+              <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+              <input type="password" class="to-clear" name="credentials[password_confirmation]" placeholder="Confirm Password">
               <input type="submit" name="submit" value="Sign up!">
             </fieldset>
           </form>
@@ -23,8 +23,8 @@
           <form id="sign-in">
             <fieldset>
               <legend>Sign In!</legend>
-              <input type="text" name="credentials[email]" placeholder="Email">
-              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+              <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
               <input type="submit" name="submit" value="Sign In">
             </fieldset>
           </form>
@@ -39,8 +39,8 @@
           <form id="change-password">
             <fieldset>
               <legend>Change Password!</legend>
-              <input type="password" name="passwords[old]" placeholder="Current Password">
-              <input type="password" name="passwords[new]" placeholder="New Password">
+              <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
+              <input type="password" class="to-clear" name="passwords[new]" placeholder="New Password">
               <input type="submit" name="submit" value="Change Password">
             </fieldset>
           </form>
@@ -63,8 +63,8 @@
               <div class="tab-content">
                 <fieldset id="part1" class="tab-pane fade in active">
                   <legend>New Entry</legend>
-                  <input class="new-date" type="date" value="date">Date:<br>
-                  <input class="new-sleep-record" type="text" value="eg: 6.5">How many hours of sleep did you get last night? Please enter a whole number or decimal<br>
+                  <input class="new-date to-clear" type="date" placeholder="YYYY-MM-DD">Date:<br>
+                  <input class="new-sleep-record to-clear" type="text" placeholder="eg: 6.5">How many hours of sleep did you get last night? Please enter a whole number or decimal<br>
                   <h5>For each question, select one response that best reflects your current mood, thoughts, and feelings. This should take 5-10 minutes to complete.</h5>
                     <p>1. How would you rate your sadness today?<br>
                       <input type="radio" name="sadness" value="0">I do not feel sad.<br>
@@ -105,37 +105,88 @@
                       <input type="radio" name="punishment" value="2">I expect to be punished.<br>
                       <input type="radio" name="punishment" value="3">I feel I am being punished.<br>
                     </p>
-                    <p>7. Have you felt disappointed in yourself today? <br>
-                      <input type="radio" name="disappointment" value="0">I don't feel disapointed in myself.<br>
-                      <input type="radio" name="disappointment" value="1">I am disappointed in myself.<br>
-                      <input type="radio" name="disappointment" value="2">I am disgusted with myself.<br>
-                      <input type="radio" name="disappointment" value="3">I hate myself.<br>
-                    </p><br>
                     <h5>Awesome job! You're a third a way through. Click the "next" button to move on or
                         check out a cute cat picture!</h5>
                   </fieldset>
                 <fieldset id="part2" class="tab-pane fade">
                   <legend>Part 2</legend>
+                  <p>7. Have you felt disappointed in yourself today? <br>
+                    <input type="radio" name="disappointment" value="0">I don't feel disapointed in myself.<br>
+                    <input type="radio" name="disappointment" value="1">I am disappointed in myself.<br>
+                    <input type="radio" name="disappointment" value="2">I am disgusted with myself.<br>
+                    <input type="radio" name="disappointment" value="3">I hate myself.<br>
+                  </p><br>
                   <p>8. How critical of yourself have you been today?<br>
-                    <input type="radio" name="criticism" value="0">I don't feel I am any worse than anybody else.<br>
-                    <input type="radio" name="criticism" value="1">I am critical of myself for my weaknesses or mistakes.<br>
-                    <input type="radio" name="criticism" value="2">I blame myself all the time for my faults.<br>
-                    <input type="radio" name="criticism" value="3">I blame myself for everything bad that happens.<br>
+                    <input type="radio" name="criticism" value="0"> I don't feel I am any worse than anybody else.<br>
+                    <input type="radio" name="criticism" value="1"> I am critical of myself for my weaknesses or mistakes.<br>
+                    <input type="radio" name="criticism" value="2"> I blame myself all the time for my faults.<br>
+                    <input type="radio" name="criticism" value="3"> I blame myself for everything bad that happens.<br>
                   </p>
-                  <p><br>
+                  <p>9. Sometimes depression lead to changes in crying. Have you noticed any change in<br>
+                    <input type="radio" name="crying" value="0"> I don't cry any more than usual.<br>
+                    <input type="radio" name="crying" value="1"> I cry more now than I used to.<br>
+                    <input type="radio" name="crying" value="2"> I cry all the time now.<br>
+                    <input type="radio" name="crying" value="3"> I used to be able <br>
+                  </p>
+                  <p>10. Have you noticed yourself feeling more irritable or grouchy?<br>
+                    <input type="radio" name="irritability" value="0"> I am no more irritated by things than I ever was.<br>
+                    <input type="radio" name="irritability" value="1"> I am slightly more irritated now than usual.<br>
+                    <input type="radio" name="irritability" value="2"> I am quite annoyed or irritated a good deal of the time.<br>
+                    <input type="radio" name="irritability" value="3"> I feel irritated all the time.<br>
+                  </p>
+                  <p>11. How is your drive to socialize today?<br>
+                    <input type="radio" name="social" value="0"> I have not lost interest in other people.<br>
+                    <input type="radio" name="social" value="1"> I am less interested in other people than I used to be.<br>
+                    <input type="radio" name="social" value="2"> I have lost most of my interest in other people.<br>
+                    <input type="radio" name="social" value="3"> I have lost all of my interest in other people.<br>
+                  </p>
+                  <p>12. Have you found yourself having a harder time making decisions than usual today? In particular,
+                    do you feel like you're having a harder time making choices about every day things like what to wear or what to eat?<br>
+                    <input type="radio" name="punishment" value="0"> I make decisions about as well as I ever could.<br>
+                    <input type="radio" name="punishment" value="1"> I put off making decisions more than I used to.<br>
+                    <input type="radio" name="punishment" value="2"> I have greater difficulty in making decisions more than I used to.<br>
+                    <input type="radio" name="punishment" value="3"> I can't make decisions at all anymore.<br>
+                  </p>
+                  <p>13. How do you feel about your appearance today as compared to most days?<br>
+                    <input type="radio" name="appearance" value="0"> I don't feel that I look any worse than I used to.<br>
+                    <input type="radio" name="appearance" value="1"> I am worried that I am looking old or unattractive.<br>
+                    <input type="radio" name="appearance" value="2"> I feel there are permanent changes in my appearance that make me look unattractive.<br>
+                    <input type="radio" name="appearance" value="3"> I believe that I look ugly.<br>
+                  </p>
+                  <p>14. How is your motivation to get work done today? <br>
                     <input type="radio" name="punishment" value="0"><br>
                     <input type="radio" name="punishment" value="1"><br>
                     <input type="radio" name="punishment" value="2"><br>
                     <input type="radio" name="punishment" value="3"><br>
                   </p>
-                  <p><br>
-                    <input type="radio" name="punishment" value="0"><br>
-                    <input type="radio" name="punishment" value="1"><br>
-                    <input type="radio" name="punishment" value="2"><br>
-                    <input type="radio" name="punishment" value="3"><br>
-                  </p>
+                  <h5>Coming down the homestretch! Ready for the last bit?</h5>
                 </fieldset>
                 <fieldset id="part3" class="tab-pane fade">
+                  <p>15. How has your motivation to get work done been today? <br>
+                    <input type="radio" name="work" value="0"> I can work about as well as before.<br>
+                    <input type="radio" name="work" value="1"> It takes an extra effort to get started at doing something.<br>
+                    <input type="radio" name="work" value="2"> I have to push myself very hard to do anything.<br>
+                    <input type="radio" name="work" value="3"> I can't do any work at all.<br>
+                  </p>
+                  <p>16. Many people diagnosed with depression experience sleep problems, either sleeping
+                    more than usual or less than usual. Have you noticed any changes in your sleep?<br>
+                    <input type="radio" name="punishment" value="0"> I can sleep as well as usual.<br>
+                    <input type="radio" name="punishment" value="1"> I don't sleep as well as I used to.<br>
+                    <input type="radio" name="punishment" value="2"> I wake up 1-2 hours earlier than usual and find it hard to get back to sleep.<br>
+                    <input type="radio" name="punishment" value="3"> <br>
+                  </p>
+                  <p><br>
+                    <input type="radio" name="punishment" value="0"><br>
+                    <input type="radio" name="punishment" value="1"><br>
+                    <input type="radio" name="punishment" value="2"><br>
+                    <input type="radio" name="punishment" value="3"><br>
+                  </p>
+                  <p><br>
+                    <input type="radio" name="punishment" value="0"><br>
+                    <input type="radio" name="punishment" value="1"><br>
+                    <input type="radio" name="punishment" value="2"><br>
+                    <input type="radio" name="punishment" value="3"><br>
+                  </p>
                 </fieldset>
               </div>
             </form>
