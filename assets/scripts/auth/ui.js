@@ -16,7 +16,8 @@ const failure = (error) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
-  console.log(app.user);
+  console.log(app.user.id);
+  $('.current').val(app.user.id);
 //  bookApi.getBooks();
 //removing so books can be got on button click =]
 };
