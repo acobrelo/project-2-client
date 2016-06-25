@@ -11,8 +11,22 @@ const onProfileCreate = function (event) {
   .done(profileUi.psuccess);
 };
 
+const onShowProfile = function (event) {
+  event.preventDefault();
+  profileApi.seeProfile();
+};
+
+const onProfileUpdate = function (event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  profileApi.updateProfile(data)
+  .done(profileUi.psuccess);
+};
+
 const addProfileHandlers = () => {
   $('#profile-options').on('submit', onProfileCreate);
+  $('#show-profile').on('click', onShowProfile);
+  $('.a').on('submit', onProfileUpdate);
 };
 
 module.exports = {

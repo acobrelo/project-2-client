@@ -8,6 +8,13 @@ const psuccess = (data) => {
   }
 };
 
+const showProfileInfo = function (profile) {
+  let profileTemplate = require ('../templates/profile-template.handlebars');
+  $('.ok').prepend(profileTemplate(profile));
+  console.log(profile);
+};
+
 module.exports = {
   psuccess,
+  showProfileInfo,
 };

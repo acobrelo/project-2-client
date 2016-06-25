@@ -53,12 +53,21 @@
               <input type="date" name="profile[dob]" placeholder="DOB (YYYY/MM/DD)">
               <input type="text" name="profile[gender]" placeholder="eg. 'male', 'genderfluid', 'other'">
               <input type="text" name="profile[medications]" placeholder="medications">
-              <input type="number" class="current" name="profile[user_id]" placeholder="user id">
+              <input type="number" class="current" name="profile[user_id]" placeholder="user id" style="display: none">
               <input type="submit" name="submit" value="Enter">
             </fieldset>
           </form>
         </article>
+
         <div class="logged-in">
+          <div class="show-profile">
+            <form class="a">
+                <fieldset class="ok">
+                  <input type="submit" name="submit" value="Enter">
+                </fieldset>
+            </form>
+            <button id="show-profile">Show Pro</button>
+          </div>
           <div class="nav-bar">
           </div>
           <div class="welcome">
