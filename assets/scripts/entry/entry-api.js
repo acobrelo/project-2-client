@@ -21,8 +21,8 @@ const listEntries = function () {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function(entry){
-    entryUi.showEntry(entry);
+  }).done(function(entries){
+    entryUi.showEntry(entries);
   });
 };
 

@@ -5,9 +5,11 @@
 
 const authEvents = require('./auth/events.js');
 const profileEvents = require('./profile/profile-events.js');
+const entryEvents = require('./entry/entry-events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
   profileEvents.addProfileHandlers();
+  entryEvents.addEntryHandlers();
 });
