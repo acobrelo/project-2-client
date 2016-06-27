@@ -16,13 +16,13 @@ const addResponse = function (data) {
 
 const showResponse = function () {
   return $.ajax({
-    url: app.host + '/responses/' + app.entry.id,
+    url: app.host + '/responses/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function(entry){
-    responseUi.showResponse(entry);
+  }).done(function(responses){
+    responseUi.showResponseSet(responses);
   });
 };
 

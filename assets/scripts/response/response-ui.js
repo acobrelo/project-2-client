@@ -8,14 +8,14 @@ const rsuccess = (data) => {
   }
 };
 
-//const showResponse = function (entries) {
-//  let entryTemplate = require ('../templates/entry.handlebars');
-//  $('.view-data').prepend(entryTemplate(response));
-//  console.log(response);
-//};
+const showResponseSet = function (responses) {
+  let responseTemplate = require ('../templates/response.handlebars');
+  $('.view-data').prepend(responseTemplate(responses));
+  console.log(responses);
+};
 
 
 module.exports = {
   rsuccess,
-  //showResponse,
+  showResponseSet,
 };

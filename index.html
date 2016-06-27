@@ -105,7 +105,7 @@
           </form>
         </article>
 
-        <div class="logged-in">
+        <div class="logged-in to-show" style="display: none">
           <div class="welcome to-show" style="display: none">
               <h2 class="personal-welcome">Welcome, </h2>
               <h4 class="last-entry-date">Your last entry was on </h4>
@@ -124,7 +124,7 @@
                 <p>Comments: <br>
                   <textarea name="entry[comments]" placeholder="eg. side effects, significant events, etc" cols=40 rows=6></textarea>
                 <br>
-                <input class="current" type="hidden" name=entry[profile_id] value="">
+                <input class="current" type="hidden" name="entry[profile_id]" value="">
                 <input type="submit" name="submit" value="Submit" data-toggle="collapse" data-target="#dep">
               </fieldset>
             </form>
@@ -295,6 +295,7 @@
 
               <div class="view-data">
                 <button type="button" id="view-old-entries">View Entries</button>
+                <button type="button" class="see-response">Resp</button>
               </div>
         </div>
       </div>

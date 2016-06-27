@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
-//const profileApi = require('../profile/profile-api.js');
+const entryStorage = require('../entry/entry-storage.js');
 //const profileUi = require('../profile/profile-ui.js');
 
 const success = (data) => {
@@ -28,10 +28,14 @@ const isProfile = function () {
 
 const profCheck = function (da) {
   let length = da.profiles.length;
-  if (length < $('.current').val()) {
+  let id = $('.current').val();
+  console.log(length + " and " + id);
+  if (length < id) {
     $('#profile-options').show();
   } else {
-    console.log($('.current').val());
+    let name = da.profiles[id-1].name;
+    $('.personal-welcome').html("Welcome, " + name);
+    entryStorage.listEntries();
   }
 };
 
@@ -39,6 +43,7 @@ const signInSuccess = (data) => {
   app.user = data.user;
   $('.current').val(app.user.id);
   $('.to-show').show();
+  $('.to-hide').hide();
   isProfile().done(profCheck);
 };
 

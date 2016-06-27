@@ -24,15 +24,16 @@ const onTest = function () {
   console.log(responseStorage.responseVals);
 };
 
-
-//const onShowResponse = function (event) {
-//  event.preventDefault();
-  //responseApi.showResponse();
-//};
+const onShowResponse = function (event) {
+  event.preventDefault();
+  responseApi.showResponse();
+  console.log("hi");
+};
 
 const addResponseHandlers = () => {
   $('#responsedata').on('submit', onResponseCreate);
   $("#response input[type=radio]").on('click', onTest);
+  $('.see-response').on('click', onShowResponse);
 };
 
 module.exports = {

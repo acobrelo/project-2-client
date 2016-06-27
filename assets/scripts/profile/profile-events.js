@@ -13,7 +13,8 @@ const onProfileCreate = function (event) {
 
 const onShowProfile = function (event) {
   event.preventDefault();
-  profileApi.seeProfile();
+  profileApi.seeProfile()
+  .done(profileUi.showProfileInfo);
   $('#show-profile').off('click');
 };
 
