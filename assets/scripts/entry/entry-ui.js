@@ -1,6 +1,11 @@
 'use strict';
 
+const app = require('../app.js');
+
 const esuccess = (data) => {
+  app.entry = data.entry;
+  $('.the-date').val(app.entry.date);
+  $('.entry-id').val(app.entry.id);
   if (data) {
     console.log(data);
   } else {
