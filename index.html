@@ -9,74 +9,111 @@
 
     <body class="container-fluid">
       <div class="content">
+        <nav class="navbar navbar-inverse to-show">
+          <div class="navbar-header">
+            <a class="navbar-brand">HeadSpace</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active to-show" data-toggle="modal" data-target="#account-options" style="display: none">
+              <a>Sign Out</a></li>
+              <div class="modal fade" id="account-options" tabindex="-1" role="dialog" aria-labelledby="accountOptionsLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="accountOptionsLabel">Account Options</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="sign-up" class="to-hide">
+                      <fieldset>
+                        <legend>Sign up!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="password" class="to-clear" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type="submit" name="submit" value="Sign up!">
+                      </fieldset>
+                    </form>
+
+                    <form id="sign-in" class="to-hide">
+                      <fieldset>
+                        <legend>Sign In!</legend>
+                        <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
+                        <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
+                        <input type="submit" name="submit" value="Sign In">
+                      </fieldset>
+                    </form>
+
+                    <form id="sign-out" class="to-show" style="display: none">
+                      <fieldset>
+                        <legend>Sign Out!</legend>
+                        <input class="sign-out" type="submit" value="Sign Out">
+                      </fieldset>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <li data-toggle="modal" data-target="#profile-settings" id="show-profile" class="to-show" style="display: none"><a>Profile Settings</a></li>
+              <div class="modal fade" id="profile-settings" tabindex="-1" role="dialog" aria-labelledby="profileSettingsLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title show-profile" id="profileSettingsLabel">Profile Settings</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="show-profile">
+                        <h5> To make a change, just fill in the forms and hit "Enter"!</h5>
+                        <form class="a">
+                          <fieldset class="ok">
+                            <input type="submit" name="submit" value="Enter">
+                            <p style="display: none" class="updated">Profile Updated!</p>
+                          </fieldset>
+                        </form>
+                        <form id="change-password">
+                          <fieldset>
+                            <legend>Change Password!</legend>
+                            <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
+                            <input type="password" class="to-clear" name="passwords[new]" placeholder="New Password">
+                            <input type="submit" name="submit" value="Change Password">
+                            <p style="display: none" class="updated">Password Updated!</p>
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <li><a>Tips</a></li>
+            </ul>
+          </nav>
+          <div class="intro to-hide">
+            <h1> HeadSpace </h1>
+            <h4> mood tracking for better treatment </h4>
+            <button data-toggle="modal" data-target="#account-options"> click here to sign in or sign up to get started</button>
+          </div>
         <article>
-          <form id="sign-up">
-            <fieldset>
-              <legend>Sign up!</legend>
-              <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
-              <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
-              <input type="password" class="to-clear" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <input type="submit" name="submit" value="Sign up!">
-            </fieldset>
-          </form>
-
-          <form id="sign-in">
-            <fieldset>
-              <legend>Sign In!</legend>
-              <input type="text" class="to-clear" name="credentials[email]" placeholder="Email">
-              <input type="password" class="to-clear" name="credentials[password]" placeholder="Password">
-              <input type="submit" name="submit" value="Sign In">
-            </fieldset>
-          </form>
-
-          <form id="sign-out">
-            <fieldset>
-              <legend>Sign Out!</legend>
-              <input class="sign-out" type="submit" value="Sign Out">
-            </fieldset>
-          </form>
-
-          <form id="change-password">
-            <fieldset>
-              <legend>Change Password!</legend>
-              <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
-              <input type="password" class="to-clear" name="passwords[new]" placeholder="New Password">
-              <input type="submit" name="submit" value="Change Password">
-            </fieldset>
-          </form>
-        </article>
-        <article>
-          <form id="profile-options">
+          <form id="profile-options" class="init-pro" style="display: none">
             <fieldset>
               <legend>Please fill out some basic information to get started</legend>
               <input type="text" name="profile[name]" placeholder="Preffered name">
               <input type="date" name="profile[dob]" placeholder="DOB (YYYY/MM/DD)">
               <input type="text" name="profile[gender]" placeholder="eg. 'male', 'genderfluid', 'other'">
               <input type="text" name="profile[medications]" placeholder="medications">
-              <input type="number" class="current" name="profile[user_id]" style="display: none">
               <input type="submit" name="submit" value="Enter">
             </fieldset>
           </form>
         </article>
 
         <div class="logged-in">
-          <div class="show-profile">
-            <form class="a">
-                <fieldset class="ok">
-                  <input type="submit" name="submit" value="Enter">
-                </fieldset>
-            </form>
-            <button id="show-profile">Show Pro</button>
-          </div>
-          <div class="nav-bar">
-          </div>
-          <div class="welcome">
+          <div class="welcome to-show" style="display: none">
               <h2 class="personal-welcome">Welcome, </h2>
               <h4 class="last-entry-date">Your last entry was on </h4>
           </div>
-          <div class="new-entry">
-            <button type="button" id="make-new-entry">New Entry</button>
-            <form class="make-entry">
+          <button data-toggle="collapse" data-target="#entry-start">New Entry</button>
+          <div id="new-entry">
+            <div id="entry-start" class="collapse">
+            <form>
               <fieldset>
                 <legend>New Entry</legend>
                 <p>Date: <input class="the-date" name="entry[date]" type="date" placeholder="YYYY-MM-DD"></p><br>
@@ -88,10 +125,12 @@
                   <textarea name="entry[comments]" placeholder="eg. side effects, significant events, etc" cols=40 rows=6></textarea>
                 <br>
                 <input class="current" type="hidden" name=entry[profile_id] value="">
-                <input type="submit" name="submit" value="Submit">
+                <input type="submit" name="submit" value="Submit" data-toggle="collapse" data-target="#dep">
               </fieldset>
             </form>
-              <ul class="nav nav-tabs">
+          </div>
+            <div id="dep" class="collapse">
+              <ul style="display: none" class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#part1">Part 1</a></li>
                 <li><a data-toggle="tab" href="#part2">Part 2</a></li>
                 <li><a data-toggle="tab" href="#part3">Part 3</a></li>
@@ -148,6 +187,7 @@
                     </p><br>
                     <h5>Awesome job! You're a third a way through. Click the "next" button to move on or
                         check out a cute cat picture!</h5>
+                    <button data-toggle="tab" data-target="#part2">Next</button>
                   </div>
                 <div id="part2" class="tab-pane fade">
                   <legend>Part 2</legend>
@@ -195,6 +235,8 @@
                     <input type="radio" name=14 value=3> I don't have enough energy to do anything.<br>
                   </p>
                   <h5>Coming down the homestretch! Ready for the last bit?</h5>
+                  <button data-toggle="tab" data-target="#part1">Back</button>
+                  <button data-toggle="tab" data-target="#part3">Next</button>
                 </div>
                 <div id="part3" class="tab-pane fade">
                   <p>15. Many people diagnosed with depression experience sleep problems, either sleeping
@@ -241,14 +283,15 @@
           </form>
           <form id="responsedata">
             <fieldset>
-              <input type="text" class="r qid" name="response[question_id]" value="">
-              <input type="text" class="r the-date" name="response[date]" value="">
-              <input type="text" class="r entry-id" name="response[entry_id]" value="">
-              <input type="text" class="r response-val" name="response[response_value]" value="">
+              <input type="hidden" class="r qid" name="response[question_id]" value="">
+              <input type="hidden" class="r the-date" name="response[date]" value="">
+              <input type="hidden" class="r entry-id" name="response[entry_id]" value="">
+              <input type="hidden" class="r response-val" name="response[response_value]" value="">
               <input type="submit" name="submit" value="Submit">
             </fieldset>
           </form>
           </div>
+        </div>
 
               <div class="view-data">
                 <button type="button" id="view-old-entries">View Entries</button>

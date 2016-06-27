@@ -17,7 +17,7 @@ const onShowEntries = function (event) {
 };
 
 const addEntryHandlers = () => {
-  $('.make-entry').on('submit', onEntryCreate);
+  $('#entry-start').on('submit', onEntryCreate);
   $('#view-old-entries').on('click', onShowEntries);
 };
 

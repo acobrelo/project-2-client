@@ -4,7 +4,8 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
-
+//const profileApi = require('../profile/profile-api.js');
+//const profileUi = require('../profile/profile-ui.js');
 
 const onSignUp = (event) => {
   event.preventDefault();

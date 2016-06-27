@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('../app.js');
-const profileUi = require('./profile-ui.js');
 
 const addProfile = function (data) {
   return $.ajax ({
@@ -21,8 +20,6 @@ const seeProfile = function () {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function(profile){
-    profileUi.showProfileInfo(profile);
   });
 };
 

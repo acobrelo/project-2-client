@@ -14,6 +14,7 @@ const onProfileCreate = function (event) {
 const onShowProfile = function (event) {
   event.preventDefault();
   profileApi.seeProfile();
+  $('#show-profile').off('click');
 };
 
 const onProfileUpdate = function (event) {

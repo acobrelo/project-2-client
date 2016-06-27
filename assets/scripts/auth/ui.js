@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('../app.js');
+//const profileApi = require('../profile/profile-api.js');
+//const profileUi = require('../profile/profile-ui.js');
 
 const success = (data) => {
   if (data) {
@@ -14,10 +16,30 @@ const failure = (error) => {
   console.error(error);
 };
 
+const isProfile = function () {
+    return $.ajax({
+      url: app.host + '/profiles/',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+    });
+  };
+
+const profCheck = function (da) {
+  let length = da.profiles.length;
+  if (length < $('.current').val()) {
+    $('#profile-options').show();
+  } else {
+    console.log($('.current').val());
+  }
+};
+
 const signInSuccess = (data) => {
   app.user = data.user;
-  console.log(app.user.id);
   $('.current').val(app.user.id);
+  $('.to-show').show();
+  isProfile().done(profCheck);
 };
 
 const signOutSuccess = () => {
@@ -29,5 +51,7 @@ module.exports = {
   success,
   failure,
   signInSuccess,
-  signOutSuccess
+  signOutSuccess,
+  profCheck,
+  isProfile,
 };
