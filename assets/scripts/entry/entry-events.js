@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const entryApi = require('./entry-api');
 const entryUi = require('./entry-ui');
+const entryStorage = require('./entry-storage');
 
 const onEntryCreate = function (event) {
   event.preventDefault();
@@ -13,7 +14,8 @@ const onEntryCreate = function (event) {
 
 const onShowEntries = function (event) {
   event.preventDefault();
-  entryApi.listEntries();
+  entryApi.listEntries()
+  .done(entryStorage.handlebarsBind);
 };
 
 const addEntryHandlers = () => {

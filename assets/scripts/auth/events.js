@@ -38,11 +38,28 @@ const onChangePassword = (event) => {
   .fail(ui.failure);
 };
 
+const onHideCat = function () {
+  event.preventDefault();
+  $('#cats').hide();
+  $('.show-cat').show();
+  $('.hide-cat').hide();
+};
+
+const onShowCat = function () {
+  event.preventDefault();
+  $('#cats').show();
+  $('.show-cat').hide();
+  $('.hide-cat').show();
+};
+
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('.hide-cat').on('click', onHideCat);
+  $('.show-cat').on('click', onShowCat);
 };
 //
 module.exports = {

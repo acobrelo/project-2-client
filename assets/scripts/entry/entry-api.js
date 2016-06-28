@@ -38,17 +38,6 @@ const showEntry = function () {
   });
 };
 
-const updateEntry = (data) => {
-  return $.ajax({
-    url: app.host + '/entries/' + app.user.id,
-    method: "PATCH",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-    data: data,
-  });
-};
-
 const deleteEntry = () => {
   return $.ajax({
     url: app.host + '/entries/' + app.user.id,
@@ -63,6 +52,5 @@ module.exports = {
   addEntry,
   listEntries,
   showEntry,
-  updateEntry,
   deleteEntry,
 };

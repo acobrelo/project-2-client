@@ -6,11 +6,12 @@ const esuccess = (data) => {
   app.entry = data.entry;
   $('.the-date').val(app.entry.date);
   $('.entry-id').val(app.entry.id);
-  if (data) {
-    console.log(data);
-  } else {
-    console.log('Success');
-  }
+  $('.last-entry-date').html("Your last entry was on " + app.entry.date);
+  $('.last-entry-date').show();
+  $('input[type=radio]').attr('checked', false);
+  $('input[type=date]').val("");
+  $('textarea').val("");
+  $('#entry-start').hide();
 };
 
 const showEntry = function (entries) {

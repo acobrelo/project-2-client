@@ -9,12 +9,12 @@
 
     <body class="container-fluid">
       <div class="content">
-        <nav class="navbar navbar-inverse to-show">
+        <nav class="navbar navbar-inverse sign">
           <div class="navbar-header">
             <a class="navbar-brand">HeadSpace</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active to-show" data-toggle="modal" data-target="#account-options" style="display: none">
+            <li class="sign signout default-show" data-toggle="modal" data-target="#account-options" style="display: none">
               <a>Sign Out</a></li>
               <div class="modal fade" id="account-options" tabindex="-1" role="dialog" aria-labelledby="accountOptionsLabel">
                 <div class="modal-dialog" role="document">
@@ -43,7 +43,7 @@
                       </fieldset>
                     </form>
 
-                    <form id="sign-out" class="to-show" style="display: none">
+                    <form id="sign-out" class="to-show default-show" style="display: none">
                       <fieldset>
                         <legend>Sign Out!</legend>
                         <input class="sign-out" type="submit" value="Sign Out">
@@ -53,7 +53,7 @@
                   </div>
                 </div>
               </div>
-              <li data-toggle="modal" data-target="#profile-settings" id="show-profile" class="to-show" style="display: none"><a>Profile Settings</a></li>
+              <li data-toggle="modal" data-target="#profile-settings" id="show-profile" class="to-show default-show" style="display: none"><a>Profile Settings</a></li>
               <div class="modal fade" id="profile-settings" tabindex="-1" role="dialog" aria-labelledby="profileSettingsLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -70,7 +70,7 @@
                             <p style="display: none" class="updated">Profile Updated!</p>
                           </fieldset>
                         </form>
-                        <form id="change-password">
+                        <form id="change-password" class="default-show">
                           <fieldset>
                             <legend>Change Password!</legend>
                             <input type="password" class="to-clear" name="passwords[old]" placeholder="Current Password">
@@ -84,13 +84,28 @@
                   </div>
                 </div>
               </div>
-              <li><a>Tips</a></li>
+              <li data-toggle="modal" data-target="#tip" id="some-tips" class="to-show" style="display: none"><a>Tips</a></li>
+              <div class="modal fade" id="tips" tabindex="-1" role="dialog" aria-labelledby="tipsLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title show-tips" id="tipsLabel">Helpful Links</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="show-profile">
+                        <h5> To make a change, just fill in the forms and hit "Enter"!</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ul>
           </nav>
           <div class="intro to-hide">
             <h1> HeadSpace </h1>
             <h4> mood tracking for better treatment </h4>
-            <button data-toggle="modal" data-target="#account-options"> click here to sign in or sign up to get started</button>
+            <button class="reset" data-toggle="modal" data-target="#account-options"> click here to sign in or sign up to get started</button>
           </div>
         <article>
           <form id="profile-options" class="init-pro" style="display: none">
@@ -109,6 +124,9 @@
           <div class="welcome to-show" style="display: none">
               <h2 class="personal-welcome">Welcome, </h2>
               <h4 class="last-entry-date">Your last entry was on </h4>
+              <button class="hide-cat">Hide cat</button>
+              <button style="display: none" class="show-cat">Show cat</button>
+              <a id="cats" href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
           </div>
           <button data-toggle="collapse" data-target="#entry-start">New Entry</button>
           <div id="new-entry">
@@ -125,7 +143,7 @@
                   <textarea name="entry[comments]" placeholder="eg. side effects, significant events, etc" cols=40 rows=6></textarea>
                 <br>
                 <input class="current" type="hidden" name="entry[profile_id]" value="">
-                <input type="submit" name="submit" value="Submit" data-toggle="collapse" data-target="#dep">
+                <input type="submit" name="submit" value="Start Mood Survey" data-toggle="collapse" data-target="#dep">
               </fieldset>
             </form>
           </div>
@@ -265,7 +283,7 @@
                     <input type="radio" name=18 value=2> It's hard to keep my mind on anything for very long.<br>
                     <input type="radio" name=18 value=3> I can't concentrate on anything.<br>
                   </p>
-                  <p>19. Two questions left! DO you feel more tired or fatigued today?<br>
+                  <p>19. Two questions left! Do you feel more tired or fatigued today?<br>
                     <input type="radio" name=19 value=0> I am no more tired or fatigued than usual.<br>
                     <input type="radio" name=19 value=1> I get more tired or fatigued more easily than usual.<br>
                     <input type="radio" name=19 value=2> I am too tired or fatigued to do a lot of the things I used to do.<br>
@@ -295,7 +313,7 @@
 
               <div class="view-data">
                 <button type="button" id="view-old-entries">View Entries</button>
-                <button type="button" class="see-response">Resp</button>
+                <button type="button" class="ok-see-response">Resp</button>
               </div>
         </div>
       </div>

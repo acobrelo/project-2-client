@@ -28,13 +28,15 @@ const isProfile = function () {
 
 const profCheck = function (da) {
   let length = da.profiles.length;
-  let id = $('.current').val();
-  console.log(length + " and " + id);
-  if (length < id) {
+  let user_id = $('.current').val();
+  console.log(length + " and " + user_id);
+  if (length < user_id) {
     $('#profile-options').show();
   } else {
-    let name = da.profiles[id-1].name;
+    let name = da.profiles[user_id-1].name;
     $('.personal-welcome').html("Welcome, " + name);
+    $('.to-show').show();
+    $('.sign').show();
     entryStorage.listEntries();
   }
 };
@@ -42,13 +44,24 @@ const profCheck = function (da) {
 const signInSuccess = (data) => {
   app.user = data.user;
   $('.current').val(app.user.id);
-  $('.to-show').show();
   $('.to-hide').hide();
+  $('.to-clear').val("");
+  $('.default-show').show();
   isProfile().done(profCheck);
 };
 
 const signOutSuccess = () => {
   app.user = null;
+  $('.current').val();
+  $('.to-show').hide();
+  $('.to-hide').show();
+  $('.signout').hide();
+  $('personal-welcome').html("");
+  $('#profile-options').hide();
+  $('input[type=radio]').attr('checked', false);
+  $('input[type=date]').val("");
+  $('textarea').val("");
+  //$('#account-options').fadeOut('fast', success);
   console.log('User signed out successfully');
 };
 
