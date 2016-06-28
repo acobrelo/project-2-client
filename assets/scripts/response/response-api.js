@@ -14,19 +14,19 @@ const addResponse = function (data) {
   });
 };
 
-const showResponse = function () {
+const showResponseQ = function () {
   return $.ajax({
-    url: app.host + '/responses/',
+    url: app.host + '/questions/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function(responses){
-    responseUi.showResponseSet(responses);
+  }).done(function (questions) {
+    responseUi.showResponseSet(questions);
   });
 };
 
 module.exports = {
   addResponse,
-  showResponse,
+  showResponseQ,
 };

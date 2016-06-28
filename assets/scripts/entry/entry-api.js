@@ -40,11 +40,13 @@ const showEntry = function () {
 
 const deleteEntry = () => {
   return $.ajax({
-    url: app.host + '/entries/' + app.user.id,
+    url: app.host + '/entries/' + entryUi.id,
     method: "DELETE",
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
+  }).done(function () {
+    $('#data-goes-here').hide();
   });
 };
 

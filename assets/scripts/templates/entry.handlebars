@@ -1,9 +1,13 @@
-{{#each entries}}
-<div class={{id}}>
-  Entry: {{id}} <br>
-  Date: {{date}} <br>
-  Comments: {{comments}} <br>
-  <input class="see-response h-button {{id}}" type="submit" name="submit" value="See Entire Entry"> <br>
-  <input class="delete-entry h-button {{id}}" type="submit" name="submit" value="Delete Entry">
+<div id="data-goes-here">
+  {{#each entries}}
+  <div class={{id}}>
+    Date: {{date}} <br>
+    Comments: {{comments}} <br>
+    <p style="display: none">Are you sure? Deletion is permanent!</p>
+    <input class="see-response h-button {{id}}" type="submit" name="submit" value="See Entire Entry"> <br>
+    <input class="delete-warn h-button {{id}}" type="submit" name="submit" value="Delete Entry">
+    <input style="display: none" class="delete-entry h-button {{id}}" type="submit" name="submit" value="Delete">
+    <input style="display: none" class="cancel h-button {{id}}" type="submit" name="submit" value="Cancel">
+    </div>
+  {{/each}}
 </div>
-{{/each}}

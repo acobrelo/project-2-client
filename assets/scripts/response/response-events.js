@@ -8,13 +8,18 @@ const responseStorage = require('./response-storage');
 
 const onResponseCreate = function (event) {
   event.preventDefault();
-  for (let i = 0; i < 20; i++) {
-    $('.qid').val(i+1);
-    $('.response-val').val(responseStorage.responseVals[i]);
-    let data = getFormFields(event.target);
-    responseApi.addResponse(data)
-    .done(responseUi.rsuccess);
-  }
+  if (responseStorage.responseVals.length === 20) {
+    $('.responses-incomplete').hide();
+    for (let i = 0; i < 20; i++) {
+      $('.qid').val(i+1);
+      $('.response-val').val(responseStorage.responseVals[i]);
+      let data = getFormFields(event.target);
+      responseApi.addResponse(data)
+      .done(responseUi.rsuccess);
+    }
+  } else {
+      $('.responses-incomplete').show();
+    }
 };
 
 const onTest = function () {
@@ -24,16 +29,9 @@ const onTest = function () {
   console.log(responseStorage.responseVals);
 };
 
-const onShowResponse = function (event) {
-  event.preventDefault();
-  responseApi.showResponse();
-  console.log("hi");
-};
-
 const addResponseHandlers = () => {
   $('#responsedata').on('submit', onResponseCreate);
   $("#response input[type=radio]").on('click', onTest);
-  $('.see-response').on('click', onShowResponse);
 };
 
 module.exports = {
