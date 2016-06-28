@@ -1,7 +1,5 @@
 'use strict';
 
-//const responseStorage = require('./response-storage.js');
-
 const rsuccess = (data) => {
   if (data) {
     console.log(data);
@@ -10,12 +8,19 @@ const rsuccess = (data) => {
   }
 };
 
+let num = "unknown";
+
 const showResponseSet = function (responses) {
   let responseTemplate = require ('../templates/response.handlebars');
-  $('.view-data').prepend(responseTemplate(responses));
+  $('.' + num).prepend(responseTemplate(responses));
   console.log(responses);
 };
 
+const responseSetUp = function (data) {
+  num = data.entry.id;
+  console.log(data);
+  console.log(num);
+};
 //const totalScore = function () {
   //responseStorage.tallyResponse()
   //.done()
@@ -26,4 +31,5 @@ const showResponseSet = function (responses) {
 module.exports = {
   rsuccess,
   showResponseSet,
+  responseSetUp,
 };

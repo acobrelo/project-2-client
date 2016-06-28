@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
+const responseUi = require('../response/response-ui.js');
 
 const searchEntry = function (data) {
   let length = data.entries.length;
@@ -31,9 +32,7 @@ const getResponse = function () {
     headers: {
       Authorization: 'Token token=' + app.user.token,
       },
-    }).done(function () {
-      console.log("yaaasssss");
-    });
+  }).done(responseUi.responseSetUp);
 };
 
 const handlebarsBind = function () {
