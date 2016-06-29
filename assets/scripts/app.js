@@ -1,7 +1,7 @@
 'use strict';
 
 const app = {
-  host: 'https://headspacetracker.herokuapp.com',
+  host: 'https://localhost:3000',
 };
 
 module.exports = app;
