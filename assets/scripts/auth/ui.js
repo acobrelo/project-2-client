@@ -47,6 +47,7 @@ const signInSuccess = (data) => {
   $('.to-hide').hide();
   $('.to-clear').val("");
   $('.default-show').show();
+  $('#view-old-entries').show();
   isProfile().done(profCheck);
 };
 
@@ -61,8 +62,12 @@ const signOutSuccess = () => {
   $('input[type=radio]').attr('checked', false);
   $('input[type=date]').val("");
   $('textarea').val("");
-  //$('#account-options').fadeOut('fast', success);
-  console.log('User signed out successfully');
+  $('.cue-hide').hide();
+  $('.see-response').show();
+  $('.unhide-response').hide();
+  $('#view-data').html("");
+  $('#data-goes-here').html("");
+  $('#view-old-entries').html("View Entries");
 };
 
 module.exports = {

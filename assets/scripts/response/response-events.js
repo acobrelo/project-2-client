@@ -3,7 +3,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const responseApi = require('./response-api');
-const responseUi = require('./response-ui');
+//const responseUi = require('./response-ui');
 const responseStorage = require('./response-storage');
 
 const onResponseCreate = function (event) {
@@ -14,8 +14,7 @@ const onResponseCreate = function (event) {
       $('.qid').val(i+1);
       $('.response-val').val(responseStorage.responseVals[i]);
       let data = getFormFields(event.target);
-      responseApi.addResponse(data)
-      .done(responseUi.rsuccess);
+      responseApi.addResponse(data);
     }
   } else {
       $('.responses-incomplete').show();
@@ -26,7 +25,6 @@ const onTest = function () {
   let i = parseInt($(this).attr("name"));
   let val = parseInt($(this).val());
   responseStorage.responseVals[i-1] = val;
-  console.log(responseStorage.responseVals);
 };
 
 const addResponseHandlers = () => {

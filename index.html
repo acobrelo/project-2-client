@@ -2,7 +2,7 @@
 <html>
     <head>
       <title>HeadSpace</title>
-
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
@@ -113,8 +113,8 @@
               <legend>Please fill out some basic information to get started</legend>
               <input type="text" name="profile[name]" placeholder="Preffered name">
               <input type="date" name="profile[dob]" placeholder="DOB (YYYY/MM/DD)">
-              <input type="text" name="profile[gender]" placeholder="eg. 'male', 'genderfluid', 'other'">
-              <input type="text" name="profile[medications]" placeholder="medications">
+              Gender: <input type="text" name="profile[gender]" placeholder="gender">
+              Medications: <input type="text" name="profile[medications]" placeholder="medications">
               <input type="submit" name="submit" value="Enter">
             </fieldset>
           </form>
@@ -124,25 +124,28 @@
           <div class="welcome to-show" style="display: none">
               <h2 class="personal-welcome">Welcome, </h2>
               <h4 class="last-entry-date">Your last entry was on </h4>
+              <a id="cats" href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a><br>
               <button class="hide-cat">Hide cat</button>
               <button style="display: none" class="show-cat">Show cat</button>
-              <a id="cats" href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
           </div>
-          <button data-toggle="collapse" data-target="#entry-start">New Entry</button>
+          <div class="s-b">
+            <button class="start-button" data-toggle="collapse" data-target="#entry-start">New Entry</button>
+          </div>
           <div id="new-entry">
-            <div id="entry-start" class="collapse">
+            <div id="entry-start" class="collapse entryy">
             <form>
               <fieldset>
                 <legend>New Entry</legend>
-                <p>Date: <input class="the-date" name="entry[date]" type="date" placeholder="YYYY-MM-DD"></p><br>
-                <p>Did you take your meds today?<br>
+                <p class="gg">Date: <input class="the-date" name="entry[date]" type="date" placeholder="YYYY-MM-DD"></p>
+                <p class="gg">Did you take your meds today?<br>
                   Yes <input type="radio" name="entry[meds_taken]" value=true><br>
                   No <input type="radio" name="entry[meds_taken]" value=false><br>
                 </p>
-                <p>Comments: <br>
+                <p class="gg">Comments: <br>
                   <textarea name="entry[comments]" placeholder="eg. side effects, significant events, etc" cols=40 rows=6></textarea>
                 <br>
                 <input class="current" type="hidden" name="entry[profile_id]" value="">
+                <h5 class="entry-incl" style="display: none">Please answer all questions to continue!</h5>
                 <input type="submit" name="submit" value="Start Mood Survey" data-toggle="collapse" data-target="#dep">
               </fieldset>
             </form>
@@ -155,7 +158,7 @@
               </ul>
               <form id="response">
               <fieldset>
-              <div class="tab-content">
+              <div class="tab-content yeahhh">
                 <div id="part1" class="tab-pane fade in active">
                   <h5>For each question, select one response that best reflects your current mood, thoughts, and feelings. This should take 5-10 minutes to complete.</h5>
                     <p>1. How would you rate your sadness today?<br>
@@ -203,9 +206,11 @@
                       <input type="radio" name=7 value=2> I am disappointed in myself.<br>
                       <input type="radio" name=7 value=3> I dislike myself.<br>
                     </p><br>
+                    <div class="inner">
                     <h5>Awesome job! You're a third a way through. Click the "next" button to move on or
                         check out a cute cat picture!</h5>
-                    <button data-toggle="tab" data-target="#part2">Next</button>
+                    <button class="next" data-toggle="tab" data-target="#part2">Next</button>
+                  </div>
                   </div>
                 <div id="part2" class="tab-pane fade">
                   <legend>Part 2</legend>
@@ -252,9 +257,10 @@
                     <input type="radio" name=14 value=2> I don't have enough energy to do very much.<br>
                     <input type="radio" name=14 value=3> I don't have enough energy to do anything.<br>
                   </p>
-                  <h5>Coming down the homestretch! Ready for the last bit?</h5>
-                  <button data-toggle="tab" data-target="#part1">Back</button>
-                  <button data-toggle="tab" data-target="#part3">Next</button>
+                  <div class="ner">
+                      <h5>Coming down the homestretch! Ready for the last bit?</h5>
+                      <button class="back" data-toggle="tab" data-target="#part1">Back</button>      <button class="next" data-toggle="tab" data-target="#part3">Next</button>
+                </div>
                 </div>
                 <div id="part3" class="tab-pane fade">
                   <p>15. Many people diagnosed with depression experience sleep problems, either sleeping
@@ -295,12 +301,15 @@
                     <input type="radio" name=20 value=2> I am much less interested in sex now<br>
                     <input type="radio" name=20 value=3> I have lost interest in sex completely.<br>
                   </p>
+                  <div class="in">
+                    <button class="back" data-toggle="tab" data-target="#part2">Back</button>
+                  </div>
                 </div>
               </div>
             </fieldset>
           </form>
           <h5 class="responses-incomplete" style="display: none">Please answer all questions to continue!</h5>
-          <form id="responsedata">
+          <form id="responsedata" class="sub">
             <fieldset>
               <input type="hidden" class="r qid" name="response[question_id]" value="">
               <input type="hidden" class="r the-date" name="response[date]" value="">
@@ -311,10 +320,10 @@
           </form>
           </div>
         </div>
-
-              <div class="view-data">
-                <button type="button" id="view-old-entries">View Entries</button>
-                <button type="button" class="ok-see-response">Resp</button>
+        <div class="b-d">
+          <button type="button" class="start-button" id="view-old-entries">View Entries</button>  <button type="button" class="to-hide hidden" style="display: none" id="hide-entries">Minimize Entries</button>
+        </div>
+              <div class="view-data" id="#vd">
               </div>
         </div>
       </div>

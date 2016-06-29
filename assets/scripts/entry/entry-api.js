@@ -21,20 +21,8 @@ const listEntries = function () {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function(entries){
+  }).done( function (entries) {
     entryUi.showEntry(entries);
-  });
-};
-
-const showEntry = function () {
-  return $.ajax({
-    url: app.host + '/entries/',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  }).done(function(entry){
-    entryUi.showEntry(entry);
   });
 };
 
@@ -45,14 +33,11 @@ const deleteEntry = () => {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-  }).done(function () {
-    $('#data-goes-here').hide();
   });
 };
 
 module.exports = {
   addEntry,
   listEntries,
-  showEntry,
   deleteEntry,
 };

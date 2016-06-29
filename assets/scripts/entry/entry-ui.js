@@ -20,7 +20,6 @@ const esuccess = (data) => {
 const showEntry = function (entries) {
   let entryTemplate = require ('../templates/entry.handlebars');
   $('.view-data').prepend(entryTemplate(entries));
-  console.log(entries);
 };
 
 module.exports = {

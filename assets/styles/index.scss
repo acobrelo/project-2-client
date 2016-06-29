@@ -1,2 +1,30 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18pt;
+};
+
+p,
+.mini {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14pt;
+};
+
+#mini {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  };
+
+.intro,
+.welcome,
+.b-d,
+.s-b,
+.sub,
+.inner,
+ {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+};

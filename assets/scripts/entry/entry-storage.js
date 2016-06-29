@@ -26,12 +26,9 @@ const listEntries = function () {
   }).done(searchEntry);
 };
 
+
 let num;
-
-let hasResp = "no";
-
 const getResponse = function () {
-  console.log("work?");
   return $.ajax({
     url: app.host + '/entries/' + num,
     method: 'GET',
@@ -41,22 +38,66 @@ const getResponse = function () {
   }).done(responseUi.responseSetUp);
 };
 
-const deleteWarning = function () {
-  $(this).parent().children().show();
-  $(this).hide();
-  entryUi.id = $(this).parent().attr("class");
+const resp = function (data) {
+  let sss = data.entry.responses[0];
+  if (sss !== undefined) {
+    getResponse()
+    .done(responseApi.showResponseQ);
+  } else {
+    $('.all-' + num).fadeIn(500).fadeOut(500);
+  }
 };
 
-const eventChain = function () {
+const hasResp = function () {
+  return $.ajax({
+    url: app.host + '/entries/' + num,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+      },
+  }).done(resp);
+};
+
+const deleteWarning = function (event) {
+  event.preventDefault();
+  entryUi.id = $(this).parent().attr("class");
+  num = entryUi.id;
+  $('.can-' + num).show();
+  $(this).hide();
+};
+
+//let click = 0;
+
+const eventChain = function (event) {
+  event.preventDefault();
   num = $(this).parent().attr("class");
-  getResponse()
-  .done(responseApi.showResponseQ);
+  //$(this).parent().val(click);
+//  if (click === 0) {
+    hasResp();
+//    click = 1;
+//  } else {
+  //  console.log(num);
+//  }
+//  $('.uh-' + num).show();
+};
+
+const onCancel = function (event) {
+  event.preventDefault();
+  $('.can-' + num).hide();
+  $('.delete-warn').show();
+};
+
+const onUnhide = function (event) {
+  event.preventDefault();
+  $('.displayed-data').show();
 };
 
 const handlebarsBind = function () {
   $('.see-response').on('click', eventChain);
   $('.delete-warn').on('click', deleteWarning);
   $('.delete-entry').on('click', entryApi.deleteEntry);
+  $('.cancel').on('click', onCancel);
+  $('.unhide-response').on('click', onUnhide);
 };
 
 module.exports = {
