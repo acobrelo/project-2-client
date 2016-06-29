@@ -237,7 +237,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  host: 'https://headspacetracker.herokuapp.com'
+	  host: 'https://localhost:3000'
 	};
 
 	module.exports = app;
