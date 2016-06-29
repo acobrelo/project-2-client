@@ -29,7 +29,6 @@ const isProfile = function () {
 const profCheck = function (da) {
   let length = da.profiles.length;
   let user_id = $('.current').val();
-  console.log(length + " and " + user_id);
   if (length < user_id) {
     $('#profile-options').show();
   } else {
