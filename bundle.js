@@ -1897,6 +1897,7 @@ webpackJsonp([0],[
 
 	var onShowProfile = function onShowProfile(event) {
 	  event.preventDefault();
+	  $('.profileclear').html("");
 	  profileApi.seeProfile().done(profileUi.showProfileInfo);
 	  //$('#show-profile').off('click');
 	};
