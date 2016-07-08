@@ -7,8 +7,8 @@ const profileUi = require('./profile-ui');
 const onProfileCreate = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  profileApi.addProfile(data);
-  //.done(profileUi.psuccess);
+  profileApi.addProfile(data)
+  .done(profileUi.psuccess);
 };
 
 const onShowProfile = function (event) {
@@ -21,8 +21,8 @@ const onShowProfile = function (event) {
 const onProfileUpdate = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  profileApi.updateProfile(data)
-  .done(profileUi.psuccess);
+  profileApi.updateProfile(data);
+  //.done(profileUi.psuccess);
 };
 
 const addProfileHandlers = () => {
