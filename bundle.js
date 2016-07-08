@@ -280,8 +280,7 @@ webpackJsonp([0],[
 	  if (length < user_id) {
 	    $('#profile-options').show();
 	  } else {
-	    var name = da.profiles[user_id - 1].name;
-	    $('.personal-welcome').html("Welcome, " + name);
+	    $('.personal-welcome').html("Welcome!");
 	    $('.to-show').show();
 	    $('.sign').show();
 	    entryStorage.listEntries();
@@ -318,6 +317,7 @@ webpackJsonp([0],[
 	  $('#data-goes-here').html("");
 	  $('#view-old-entries').html("View Entries");
 	  $('#dep').collapse('hide');
+	  $('.profileclear').html("");
 	};
 
 	module.exports = {
@@ -1898,7 +1898,7 @@ webpackJsonp([0],[
 	var onShowProfile = function onShowProfile(event) {
 	  event.preventDefault();
 	  profileApi.seeProfile().done(profileUi.showProfileInfo);
-	  $('#show-profile').off('click');
+	  //$('#show-profile').off('click');
 	};
 
 	var onProfileUpdate = function onProfileUpdate(event) {
@@ -2000,15 +2000,15 @@ webpackJsonp([0],[
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-	  return "    <p>Name: <input type=\"text\" name=\"profile[name]\" value=\""
+	  return "<div class=\"profileclear\">\n    <p class=\"name\">Name: <input type=\"text\" name=\"profile[name]\" value=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.profile : depth0)) != null ? stack1.name : stack1), depth0))
-	    + "\"></p><br>\n    <p>DOB: <input type=\"date\" name=\"profile[dob]\" value=\""
+	    + "\"></p><br>\n    <input style=\"display: none\" type=\"date\" name=\"profile[dob]\" value=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.profile : depth0)) != null ? stack1.dob : stack1), depth0))
-	    + "\"></p><br>\n    <p>Gender: <input type=\"text\" name=\"profile[gender]\" value=\""
+	    + "\">\n    <p>Gender: <input type=\"text\" name=\"profile[gender]\" value=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.profile : depth0)) != null ? stack1.gender : stack1), depth0))
 	    + "\"></p><br>\n    <p>Medications: <input type=\"text\" name=\"profile[medications]\" value=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.profile : depth0)) != null ? stack1.medications : stack1), depth0))
-	    + "\"> </p><br>\n    <input type=\"number\" style=\"display: none\" class=\"current\" name=\"profile[user_id]\">\n";
+	    + "\"> </p><br>\n    <input type=\"number\" style=\"display: none\" class=\"current\" name=\"profile[user_id]\">\n</div>\n";
 	},"useData":true});
 
 /***/ },

@@ -24,8 +24,7 @@ const profCheck = function (da) {
   if (length < user_id) {
     $('#profile-options').show();
   } else {
-    let name = da.profiles[user_id-1].name;
-    $('.personal-welcome').html("Welcome, " + name);
+    $('.personal-welcome').html("Welcome!");
     $('.to-show').show();
     $('.sign').show();
     entryStorage.listEntries();
@@ -62,6 +61,7 @@ const signOutSuccess = () => {
   $('#data-goes-here').html("");
   $('#view-old-entries').html("View Entries");
   $('#dep').collapse('hide');
+  $('.profileclear').html("");
 };
 
 module.exports = {
