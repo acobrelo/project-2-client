@@ -244,10 +244,10 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  //host: 'https://headspacetracker.herokuapp.com',
-	  host: 'http://localhost:3000'
+	  host: 'https://headspacetracker.herokuapp.com'
 	};
 
+	//host: 'http://localhost:3000',
 	module.exports = app;
 
 /***/ },
