@@ -1904,7 +1904,8 @@ webpackJsonp([0],[
 	var onProfileUpdate = function onProfileUpdate(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  profileApi.updateProfile(data).done(profileUi.psuccess);
+	  profileApi.updateProfile(data);
+	  //.done(profileUi.psuccess);
 	};
 
 	var addProfileHandlers = function addProfileHandlers() {
