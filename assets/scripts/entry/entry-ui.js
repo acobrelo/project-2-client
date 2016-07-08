@@ -14,7 +14,8 @@ const esuccess = (data) => {
   $('input[type=radio]').attr('checked', false);
   $('input[type=date]').val("");
   $('textarea').val("");
-  $('#entry-start').hide();
+  $('#entry-start').collapse('hide');
+  $('.add-hide').hide();
 };
 
 const showEntry = function (entries) {

@@ -12,9 +12,15 @@ p,
   font-size: 14pt;
 };
 
-#mini {
+.mini {
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  //align-items: center;
+  //align-content: center;
   };
 
 .intro,

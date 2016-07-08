@@ -26,6 +26,8 @@ const listEntries = function () {
   });
 };
 
+
+
 const deleteEntry = () => {
   return $.ajax({
     url: app.host + '/entries/' + entryUi.id,

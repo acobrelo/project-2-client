@@ -5,6 +5,7 @@ const responseUi = require('../response/response-ui.js');
 const responseApi = require('../response/response-api.js');
 const entryApi = require('./entry-api');
 const entryUi = require('./entry-ui');
+//const entryEvents = require('./entry-events');
 
 const searchEntry = function (data) {
   let length = data.entries.length;
@@ -28,23 +29,16 @@ const listEntries = function () {
 
 
 let num;
-const getResponse = function () {
-  return $.ajax({
-    url: app.host + '/entries/' + num,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-      },
-  }).done(responseUi.responseSetUp);
-};
 
 const resp = function (data) {
-  let sss = data.entry.responses[0];
-  if (sss !== undefined) {
-    getResponse()
-    .done(responseApi.showResponseQ);
+  let responseCheck = data.entry.responses.length;
+  if (responseCheck !== 0) {
+    responseUi.responseSetUp(data);
+    responseApi.showResponseQ();
+    $('#present').modal('show');
+    //$('.r-' + num).hide();
   } else {
-    $('.all-' + num).fadeIn(500).fadeOut(500);
+    $('.all-' + num).fadeIn(500).fadeOut(1000);
   }
 };
 
@@ -66,19 +60,11 @@ const deleteWarning = function (event) {
   $(this).hide();
 };
 
-//let click = 0;
-
 const eventChain = function (event) {
   event.preventDefault();
   num = $(this).parent().attr("class");
-  //$(this).parent().val(click);
-//  if (click === 0) {
-    hasResp();
-//    click = 1;
-//  } else {
-  //  console.log(num);
-//  }
-//  $('.uh-' + num).show();
+  $(".displayed-data").html("");
+  hasResp();
 };
 
 const onCancel = function (event) {
@@ -87,17 +73,18 @@ const onCancel = function (event) {
   $('.delete-warn').show();
 };
 
-const onUnhide = function (event) {
+const onDelete = function (event) {
   event.preventDefault();
-  $('.displayed-data').show();
+  entryApi.deleteEntry();
+  $(this).parent().hide();
 };
+
 
 const handlebarsBind = function () {
   $('.see-response').on('click', eventChain);
   $('.delete-warn').on('click', deleteWarning);
-  $('.delete-entry').on('click', entryApi.deleteEntry);
+  $('.delete-entry').on('click', onDelete);
   $('.cancel').on('click', onCancel);
-  $('.unhide-response').on('click', onUnhide);
 };
 
 module.exports = {

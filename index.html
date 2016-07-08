@@ -100,6 +100,22 @@
                   </div>
                 </div>
               </div>
+              <li data-toggle="modal" data-target="#present" id="present-response" class="to-show" style="display: none"></li>
+              <div class="modal fade" id="present" tabindex="-1" role="dialog" aria-labelledby="presentLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title show-present" id="presentLabel">Score results</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="present-data">
+                        <button class="response-close">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ul>
           </nav>
           <div class="intro to-hide">
@@ -129,7 +145,7 @@
               <button style="display: none" class="show-cat">Show cat</button>
           </div>
           <div class="s-b">
-            <button class="start-button" data-toggle="collapse" data-target="#entry-start">New Entry</button>
+            <button class="start-button add-hide" data-toggle="collapse" data-target="#entry-start">New Entry</button>
           </div>
           <div id="new-entry">
             <div id="entry-start" class="collapse entryy">
@@ -151,7 +167,7 @@
             </form>
           </div>
             <div id="dep" class="collapse">
-              <ul style="display: none" class="nav nav-tabs">
+              <ul style="display: none" class="nav nav-tabs to-hide">
                 <li class="active"><a data-toggle="tab" href="#part1">Part 1</a></li>
                 <li><a data-toggle="tab" href="#part2">Part 2</a></li>
                 <li><a data-toggle="tab" href="#part3">Part 3</a></li>
@@ -315,7 +331,9 @@
               <input type="hidden" class="r the-date" name="response[date]" value="">
               <input type="hidden" class="r entry-id" name="response[entry_id]" value="">
               <input type="hidden" class="r response-val" name="response[response_value]" value="">
-              <input type="submit" name="submit" value="Submit">
+              <input class="ent-tog" type="submit" name="submit" value="Submit">
+              <input style="display: none" type="submit" data-toggle="tab" data-target="#entry-start" name="submit" value="Submit">
+
             </fieldset>
           </form>
           </div>

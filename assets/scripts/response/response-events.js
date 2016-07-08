@@ -16,6 +16,9 @@ const onResponseCreate = function (event) {
       let data = getFormFields(event.target);
       responseApi.addResponse(data);
     }
+    $('#entry-start').collapse('show');
+    $('.add-hide').show();
+    $('#dep').collapse('hide');
   } else {
       $('.responses-incomplete').show();
     }
