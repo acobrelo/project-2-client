@@ -4,14 +4,6 @@ const app = require('../app.js');
 const entryStorage = require('../entry/entry-storage.js');
 //const profileUi = require('../profile/profile-ui.js');
 
-const success = (data) => {
-  if (data) {
-    console.log(data);
-  } else {
-    console.log('Success');
-  }
-};
-
 const failure = (error) => {
   console.error(error);
 };
@@ -32,8 +24,7 @@ const profCheck = function (da) {
   if (length < user_id) {
     $('#profile-options').show();
   } else {
-    let name = da.profiles[user_id-1].name;
-    $('.personal-welcome').html("Welcome, " + name);
+    $('.personal-welcome').html("Welcome!");
     $('.to-show').show();
     $('.sign').show();
     entryStorage.listEntries();
@@ -47,6 +38,8 @@ const signInSuccess = (data) => {
   $('.to-clear').val("");
   $('.default-show').show();
   $('#view-old-entries').show();
+  $('#entry-start').collapse('show');
+  $('.add-hide').show();
   isProfile().done(profCheck);
 };
 
@@ -67,10 +60,11 @@ const signOutSuccess = () => {
   $('#view-data').html("");
   $('#data-goes-here').html("");
   $('#view-old-entries').html("View Entries");
+  $('#dep').collapse('hide');
+  $('.profileclear').html("");
 };
 
 module.exports = {
-  success,
   failure,
   signInSuccess,
   signOutSuccess,

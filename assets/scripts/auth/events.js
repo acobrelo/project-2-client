@@ -10,9 +10,7 @@ const ui = require('./ui');
 const onSignUp = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.signUp(data)
-  .done(ui.success)
-  .fail(ui.failure);
+  api.signUp(data);
 };
 
 const onSignIn = (event) => {
@@ -33,9 +31,7 @@ const onSignOut = (event) => {
 const onChangePassword = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.changePassword(data)
-  .done(ui.success)
-  .fail(ui.failure);
+  api.changePassword(data);
 };
 
 const onHideCat = function () {
@@ -52,6 +48,11 @@ const onShowCat = function () {
   $('.hide-cat').show();
 };
 
+const onCloseResponse = function (event) {
+  event.preventDefault();
+  $("#present").modal('hide');
+  $(".displayed-data").html("");
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -60,6 +61,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('.hide-cat').on('click', onHideCat);
   $('.show-cat').on('click', onShowCat);
+  $('.response-close').on('click', onCloseResponse);
 };
 //
 module.exports = {

@@ -13,16 +13,17 @@ const onProfileCreate = function (event) {
 
 const onShowProfile = function (event) {
   event.preventDefault();
+  $('.profileclear').html("");
   profileApi.seeProfile()
   .done(profileUi.showProfileInfo);
-  $('#show-profile').off('click');
+  //$('#show-profile').off('click');
 };
 
 const onProfileUpdate = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  profileApi.updateProfile(data)
-  .done(profileUi.psuccess);
+  profileApi.updateProfile(data);
+  //.done(profileUi.psuccess);
 };
 
 const addProfileHandlers = () => {
